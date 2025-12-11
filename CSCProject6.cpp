@@ -65,7 +65,7 @@ void displayProperties(int, int);
 int main()
 {
 	int prompt;
-	cout << "Please press 1 to start, and any number to exit." << endl;
+	cout << "Please press 1 to start, press any other number to exit." << endl;
 	cin >> prompt;
 	while (prompt == 1) {
 		int l = 0, w = 0;
@@ -73,7 +73,7 @@ int main()
 		int perimeter = calcPerimeter(l, w);
 		int area = calcArea(l, w);
 		displayProperties(area, perimeter);
-		cout << "Press 1 to make another rectangle, press any other number to exit\n";
+		cout << "Press 1 to make another rectangle, press any other number to exit" << endl;
 		cin >> prompt;
 	}
 	cout << "Closing program.";
