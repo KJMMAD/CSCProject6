@@ -1,20 +1,70 @@
-// CSCProject6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+
+/*
+* Func : getRegInfo
+* Purpose : Gets the name of a region and the number of accidents that occured in the region in the past year.
+* Parameters :
+* - string name: region name
+* - int accidents : number of accidents for the region
+* Returns :
+* - string : name of region
+* - int : number of accidents in the region
+* Preconditions :
+* - None
+* Postconditions :
+* - Return two values, string and int
+*/
+int getRegInfo(string, int);
+
+/*
+* Func : isLower
+* Purpose : Compares the number of accidents from region 1 with region 2, if region 2 is lower then region 2 replaces region 1 as the lowest
+* Parameters :
+* - int accidents1: number of accidents for region 1
+* - int accidents2 : number of accidents for region 2
+* Returns :
+* - bool : if region1 > region2 is true
+* Preconditions :
+* - None
+* Postconditions :
+* - Return a bool value
+*/
+bool isLower(int, int);
+
+/*
+* Func : showLowest
+* Purpose : Shows the name of the region with the lowest number of accidents and the number of accidents it has
+* Parameters :
+* - string name: region name
+* - int accidents : number of accidents for the region
+* Returns :
+* - None
+* Preconditions :
+* - None
+* Postconditions :
+* - Writes the name and number of accidents for the lowest region.
+*/
+void showLowest(string, int);
 
 int main()
 {
     std::cout << "Hello World!\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int getRegInfo(string name, int accNum) {
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+}
+
+bool isLower(int region1, int region2) {
+    if (region1 <= region2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void showLowest(string name, int accNum) {
+    cout << "The safest region to drive in is " << name << "with " << accNum << " accidents." << endl;
+}
