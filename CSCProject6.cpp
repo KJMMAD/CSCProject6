@@ -80,11 +80,15 @@ int main()
 }
 
 int getLength_Width(int &l,int &w){
-	while (l < 1 || w < 1) {
+	while (l < 1 || w < 1 ) {
 		cout << "Please enter the lenght of your rectanlge.\n";
 		cin >> l;
+		cin.clear();
+		cin.ignore();
 		cout << "Please enter the width of your rectangle.\n";
 		cin >> w;
+		cin.clear();
+		cin.ignore();
 		if (l < 1 || w < 1) {
 			cout << "Invalid input(s), try again!\n";
 		}
