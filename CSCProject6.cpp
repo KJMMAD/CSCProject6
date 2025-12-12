@@ -15,7 +15,7 @@ using namespace std;
 * Postconditions :
 * - Return two values, string and int
 */
-int getRegInfo(string, int);
+int getRegInfo(string&, int&);
 
 /*
 * Func : isLower
@@ -49,10 +49,12 @@ void showLowest(string, int);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
 }
 
-int getRegInfo(string name, int accNum) {
+int getRegInfo(string &name, int &accNum) {
+    cout << "Which region would you like to update?" << endl;
+    cout << "How many accidents have happened in the region in the past year?" << endl;
 
 }
 
