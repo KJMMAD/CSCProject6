@@ -52,10 +52,13 @@ int main()
 
 }
 
-int getRegInfo(string &name, int &accNum) {
+int getRegInfo(string &regName, int &accNum) {
     cout << "Which region would you like to update?" << endl;
+    cin >> regName;
     cout << "How many accidents have happened in the region in the past year?" << endl;
-
+    cin >> accNum;
+    cin.clear();
+    cin.ignore();
 }
 
 bool isLower(int region1, int region2) {
