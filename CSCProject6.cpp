@@ -64,7 +64,6 @@ int main()
         getRegInfo(regName[i], accNum[i]);
         lowestReg = regName[0];
         lowestAcc = accNum[0];
-        cout << regName[i] << " " << accNum[i] << endl; //Making sure calling getRegInfo works correctly
         isLowest = isLower(accNum[i],lowestAcc);
         if (isLowest == true) {
             lowestReg = regName[i];
@@ -72,14 +71,6 @@ int main()
         }
     }
     showLowest(lowestReg, lowestAcc);
-    /*islowest = isLower(1, 2); //Concept for what the check for the region with the lowest accidents should look like
-    if (islowest == true) {
-        lowestReg = "";
-        lowestAcc = 1;
-    }
-    showLowest(lowestReg, lowestAcc); //With test data, should include "Central" and "10"
-    return 0;
-    */
     return 0;
 }
 
