@@ -59,12 +59,14 @@ int main()
     cout << "To start finding the safest driving region we need you to provide the number of accidents that happened in each region this past year." << endl;
     cout << "The names of the city's regions are, North, East, South, West, and Central.\n";
     for (int i = 0; i < 5; i++) {
-        bool isLowest;
-
         getRegInfo(regName[i], accNum[i]);
-        lowestReg = regName[0];
-        lowestAcc = accNum[0];
-        isLowest = isLower(accNum[i],lowestAcc);
+    }
+    lowestReg = regName[0];
+    lowestAcc = accNum[0];
+
+    for (int i = 0; i < 5; i++) {
+        bool isLowest;
+        isLowest = isLower(accNum[i], lowestAcc);
         if (isLowest == true) {
             lowestReg = regName[i];
             lowestAcc = accNum[i];
