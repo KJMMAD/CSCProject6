@@ -59,6 +59,7 @@ int getRegInfo(string &regName, int &accNum) {
     cin >> accNum;
     cin.clear();
     cin.ignore();
+    return regName, accNum;
 }
 
 bool isLower(int region1, int region2) {
