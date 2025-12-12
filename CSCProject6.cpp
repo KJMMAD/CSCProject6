@@ -61,6 +61,7 @@ int main()
     for (int i = 0; i < 5; i++) {
         getRegInfo(regName[i], accNum[i]);
     }
+
     lowestReg = regName[0];
     lowestAcc = accNum[0];
 
@@ -72,6 +73,7 @@ int main()
             lowestAcc = accNum[i];
         }
     }
+
     showLowest(lowestReg, lowestAcc);
     return 0;
 }
