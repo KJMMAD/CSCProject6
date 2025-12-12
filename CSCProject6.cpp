@@ -1,20 +1,34 @@
-// CSCProject6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+
+/*
+* Func: getCelsius
+* Purpose: Takes Fahreinheit and converts it to Celsisus with the formula C = 5/9(F-32)
+* Parameters:
+* - int f: given Fahreinheit, should not be changed
+* - int &c: returned Celsius after the formula 5/9(F-32) is calculated
+* Returns:
+* - int : Celsius using the given Fahreinheit
+* Preconditions:
+* - None
+* Postconditions:
+* - Return the value of c from the given formula C = 5/9(F-32)
+*/
+int getCelsius(int, double&);
+
+int fMin = 0, fMax = 20;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Table";
+    for (int i = fMin; i < 20; i++) {
+
+    }
+
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int getCelsius(int f, double &c) {
+    c = 5 / 9 * (f - 32);
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    return c;
+}
