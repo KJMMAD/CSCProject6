@@ -85,14 +85,16 @@ int main()
 	int numRooms = getRooms();
 	for (int i = 0; i < numRooms; i++) {
 		int sqrFt = getSqrFt();
-		int gal = galForRoom(sqrFt);
+		double gal = galForRoom(sqrFt);
 		galNeeded += gal;
 		double paintPrice = getPricePerGal();
 		paintCharge += gal * paintPrice;
 		double labor = sqrFt * laborPerSqrFt;
 		laborHrs += labor;
-		laborCharge += labor * 25;
+		laborCharge += labor * laborChargePerHr;
 	}
+	laborHrs = ceil(laborHrs * 100);
+	laborHrs = laborHrs / 100; //Rounds to nearest hundredth of an hour
 	cout << "Estimate for painting " << numRooms << " rooms." << endl;
 	displayEst(paintCharge, laborCharge, galNeeded, laborHrs);
 }
