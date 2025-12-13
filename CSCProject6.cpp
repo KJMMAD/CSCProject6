@@ -15,7 +15,7 @@ using namespace std;
 * Postconditions :
 * - Return two values, string and int
 */
-int getRegInfo(string&, int&);
+void getRegInfo(string&, int&);
 
 /*
 * Func : isLower
@@ -55,16 +55,13 @@ int main()
     int lowestAcc;
     int accNum[5]; //Array has room for 5 possible numbers to match to the corresponding region
 
-
     cout << "To start finding the safest driving region we need you to provide the number of accidents that happened in each region this past year." << endl;
     cout << "The names of the city's regions are, North, East, South, West, and Central.\n";
     for (int i = 0; i < 5; i++) {
         getRegInfo(regName[i], accNum[i]);
     }
-
     lowestReg = regName[0];
     lowestAcc = accNum[0];
-
     for (int i = 0; i < 5; i++) {
         bool isLowest;
         isLowest = isLower(accNum[i], lowestAcc);
@@ -73,15 +70,14 @@ int main()
             lowestAcc = accNum[i];
         }
     }
-
     showLowest(lowestReg, lowestAcc);
     return 0;
 }
 
-int getRegInfo(string &regName, int &accNum) {
+void getRegInfo(string &regName, int &accNum) {
     cout << "What is the name of the region?" << endl;
     cin >> regName;
-    while (accNum <= 0) {
+    do{
         cout << "How many accidents have happened in the region in the past year?" << endl;
         cin >> accNum;
         cin.clear();
@@ -89,18 +85,11 @@ int getRegInfo(string &regName, int &accNum) {
         if (accNum <= 0) {
             cout << "Invalid input, please try again." << endl;
         }
-    }
-    cout << "Input validated." << endl;
-    return regName, accNum;
+    } while (accNum <= 0);
 }
 
 bool isLower(int region1, int region2) {
-    if (region1 <= region2) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return (region1 <= region2);    
 }
 
 void showLowest(string name, int accNum) {
