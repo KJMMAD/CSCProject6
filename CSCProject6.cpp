@@ -27,7 +27,7 @@ int getRooms();
 * Postconditions:
 * - Return an int value
 */
-int	getSqFt();
+int	getSqrFt();
 
 /*
 * Func: galForRoom
@@ -77,7 +77,11 @@ int main()
 	int paintCharge = 0, laborCharge = 0, galNeeded = 0, laborHrs = 0;
 	
 	int numRooms = getRooms();
-
+	for (int i = 0; i < numRooms; i++) {
+		int sqrFt = getSqrFt();
+		int gal = galForRoom(sqrFt);
+		cout << gal << endl;
+	}
 }
 
 int getRooms() {
@@ -89,4 +93,22 @@ int getRooms() {
 			cout << "We only make estimates for 2 or more rooms, please use a number greater than 1." << endl;
 	} while (rooms <= 1);
 	return rooms;
+}
+
+int getSqrFt() {
+	int squareFoot = 0;
+	do {
+		cout << "What is the square footage of this room?" << endl;
+		cin >> squareFoot;
+		if (squareFoot <= 0)
+			cout << "Square foot must be greater than 0." << endl;
+	} while (squareFoot <= 0);
+	return squareFoot;
+}
+
+int galForRoom(int squareFoot) {
+	const int galPerSqrft = 1 % 110;
+	cout << galPerSqrft;
+	int galNeeded = squareFoot * galPerSqrft;
+	return galNeeded;
 }
