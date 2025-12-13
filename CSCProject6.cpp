@@ -70,19 +70,19 @@ int main()
     score = getScore();
     sLow = score;
     sHigh = score;
+    sTotal += score;
 
     do {
-        sTotal += score;
+        score = getScore();
         if (isLower(score, sLow)) {
             sLow = score;
         }
         if (isHigher(score, sHigh)) {
             sHigh = score;
         }
-        score = getScore();
+        sTotal += score;
         j++;
     } while(j < judges);
-    cout << sTotal << endl;
     avg = calcAverage(sTotal, sLow, sHigh);
     cout << "The final score is " << avg << endl;
 
@@ -111,11 +111,7 @@ bool isHigher(double sCompH, double sHigh) {
 }
 
 double calcAverage(double &sTotal, double sHigh,double sLow){
-    cout << sHigh <<" "<< sLow << " " << sTotal << endl;
-
-    double newTotal = sTotal - sHigh - sLow;
-    cout << newTotal << "total" << endl;
-    const double aThird = 0.333;
-    double average = sTotal * aThird;
+    sTotal = sTotal - (sHigh + sLow);
+    double average = sTotal / 3;
     return average;
 }
