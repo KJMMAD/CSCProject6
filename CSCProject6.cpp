@@ -39,7 +39,7 @@ int	getSqrFt();
 * Preconditions:
 * Postconditions:
 */
-int galForRoom(int);
+double galForRoom(int);
 
 /*
 * Func:getPricePerGal
@@ -79,7 +79,7 @@ int main()
 	int numRooms = getRooms();
 	for (int i = 0; i < numRooms; i++) {
 		int sqrFt = getSqrFt();
-		int gal = galForRoom(sqrFt);
+		double gal = galForRoom(sqrFt);
 		cout << gal << endl;
 	}
 }
@@ -100,15 +100,16 @@ int getSqrFt() {
 	do {
 		cout << "What is the square footage of this room?" << endl;
 		cin >> squareFoot;
-		if (squareFoot <= 0)
+		if (squareFoot <= 69)
 			cout << "Square foot must be greater than 0." << endl;
-	} while (squareFoot <= 0);
+	} while (squareFoot <= 69); //increased minimum squarefoot to at least 70 as that is a more reasonable size for even a small room
 	return squareFoot;
 }
 
-int galForRoom(int squareFoot) {
-	const int galPerSqrft = 1 % 110;
-	cout << galPerSqrft;
-	int galNeeded = squareFoot * galPerSqrft;
+double galForRoom(int squareFoot) {
+	const double galPerSqrft = 0.0091; // 1/110 rounded to the fourth place from the decimal
+	cout << galPerSqrft << endl;
+	double galNeeded = squareFoot * galPerSqrft;
+	cout << galNeeded << endl;
 	return galNeeded;
 }
