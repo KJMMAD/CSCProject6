@@ -1,20 +1,92 @@
-// CSCProject6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+
+/*
+* Func: getRoom
+* Purpose: Asks for the number of rooms to be painted, must be greater than 1
+* Parameters:
+* - None
+* Return:
+* - int: number of rooms
+* Preconditions:
+* - None
+* Postconditions:
+* - Return an integer greater than 1
+*/
+int getRooms();
+
+/*
+* Func: getSqFt
+* Purpose: Aks for and receives input for the square feet of a room
+* Parameters:
+* - None
+* Return:
+* - int: square feet for the room that must be greater than 0
+* Preconditions:
+* - None
+* Postconditions:
+* - Return an int value
+*/
+int	getSqFt();
+
+/*
+* Func: galForRoom
+* Purpose: Calculates the gallons of paint needed for a room
+* Parameters:
+* - int sqrFt: square feet of the room, must be > 10
+* Return:
+* - int: Gallons needed for room based on 110 sqrFt / 1 gallon of paint
+* Preconditions:
+* Postconditions:
+*/
+int galForRoom(int);
+
+/*
+* Func:getPricePerGal
+* Purpose: Calculate the price of paint per gallon
+* Parameters:
+* -double gal: gallons need to paint the room
+* Return:
+* -double pricePerGal: price of paint per gallon
+* Preconditions:
+* - None
+* Postconditions:
+* -Return a double value indicating the price of paint per gallon
+*/
+double getPricePerGal(double);
+
+/*
+* Func:
+* Purpose: Display the estimated cost of the paint job for all of the rooms.
+* Parameters:
+* - double paintCharge: price of paint per gallon
+* - double galNeeded: total of gallons needed to paint all of the rooms
+* - double laborCharge: charge of labor based on the product of labor required and length of labor
+* - double laborHrs: hours of labor
+* Return:
+* - None
+* Preconditions:
+* - None
+* Postconditions:
+* - Display the estimated cost for the paint job
+*/
+void displayEst(double, double, double, double);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int paintCharge = 0, laborCharge = 0, galNeeded = 0, laborHrs = 0;
+	
+	int numRooms = getRooms();
+
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+int getRooms() {
+	int rooms = 0;
+	do {
+		cout << "Please enter the number of rooms you want to be painted." << endl;
+		cin >> rooms;
+		if (rooms < 1)
+			cout << "We only make estimates for 2 or more rooms, please use a number greater than 1." << endl;
+	} while (rooms <= 1);
+	return rooms;
+}
