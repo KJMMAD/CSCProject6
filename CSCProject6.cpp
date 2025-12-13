@@ -1,4 +1,7 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
+
 using namespace std;
 
 /*
@@ -39,7 +42,7 @@ int	getSqrFt();
 * Preconditions:
 * Postconditions:
 */
-double galForRoom(int);
+int galForRoom(int);
 
 /*
 * Func:getPricePerGal
@@ -53,7 +56,7 @@ double galForRoom(int);
 * Postconditions:
 * -Return a double value indicating the price of paint per gallon
 */
-double getPricePerGal(double);
+double getPricePerGal();
 
 /*
 * Func:
@@ -75,13 +78,22 @@ void displayEst(double, double, double, double);
 int main()
 {
 	int paintCharge = 0, laborCharge = 0, galNeeded = 0, laborHrs = 0;
-	
+	const double laborPerSqrFt = 0.0727; // 8/110 rounded to fourth place from decimal
+	const double laborChargePerHr = 25;
+
 	int numRooms = getRooms();
 	for (int i = 0; i < numRooms; i++) {
 		int sqrFt = getSqrFt();
 		double gal = galForRoom(sqrFt);
-		cout << gal << endl;
+		galNeeded += gal;
+		double paintPrice = getPricePerGal();
+		paintCharge += gal * paintPrice;
+		double labor = sqrFt * laborPerSqrFt;
+		laborHrs += labor;
+		laborCharge += labor * 25;
 	}
+	cout << "Estimate for painting " << numRooms << " rooms." << endl;
+	displayEst(paintCharge, laborCharge, galNeeded, laborHrs);
 }
 
 int getRooms() {
@@ -106,10 +118,28 @@ int getSqrFt() {
 	return squareFoot;
 }
 
-double galForRoom(int squareFoot) {
+int galForRoom(int squareFoot) {
 	const double galPerSqrft = 0.0091; // 1/110 rounded to the fourth place from the decimal
-	cout << galPerSqrft << endl;
 	double galNeeded = squareFoot * galPerSqrft;
-	cout << galNeeded << endl;
+	galNeeded = round(galNeeded);
 	return galNeeded;
+}
+
+double getPricePerGal() {
+	double pricePerGal = 0;
+	do {
+		cout << "What is the price of the paint you want for this room?" << endl;
+		cin >> pricePerGal;
+		if (pricePerGal < 10)
+			cout << "Prices for paint are often $10 or higher. Please enter a price greater or equal to 10" << endl;
+	} while (pricePerGal < 10);
+	return pricePerGal;
+}
+
+void displayEst(double pCharge, double lCharge, double gNeeded, double lHrs) {
+	cout << "Gallons of paint to purchase: " << gNeeded << endl;
+	cout << "Number of hours required to paint rooms " << lHrs << endl;
+	cout << "Cost of paint: $" << pCharge << endl;
+	cout << "Cost of labor: $" << lCharge << endl;
+	cout << "Total cost for job: $" << lCharge + pCharge << endl;
 }
