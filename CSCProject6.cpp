@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 /*
@@ -14,21 +15,25 @@ using namespace std;
 * Postconditions:
 * - Return the value of c from the given formula C = 5/9(F-32)
 */
-int getCelsius(int, double&);
+double getCelsius(int);
 
-int fMin = 0, fMax = 20;
+const int fMin = 0, fMax = 20;
 
 int main()
 {
-    cout << "Table";
-    for (int i = fMin; i < 20; i++) {
-
+    double c;
+    cout << "Table: Fahreinheit to Celsius" << endl;
+    cout << "Fahreinheit    Celsius" << endl;
+    for (int f = fMin; f <= fMax; f++) {
+        c = getCelsius(f);
+        cout << setw(5) << f << setw(25) << fixed << setprecision(1) << c << endl;
     }
-
+    return 0;
 }
 
-int getCelsius(int f, double &c) {
-    c = 5 / 9 * (f - 32);
-
+double getCelsius(int f) {
+    double c;
+    const double fract = 0.556;
+    c = fract * (f - 32);
     return c;
 }
