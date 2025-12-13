@@ -77,14 +77,15 @@ void displayEst(double, double, double, double);
 
 int main()
 {
-	int paintCharge = 0, laborCharge = 0, galNeeded = 0, laborHrs = 0;
-	const double laborPerSqrFt = 0.0727; // 8/110 rounded to fourth place from decimal
+	int galNeeded = 0;
+	double paintCharge = 0.00, laborCharge = 0.00, laborHrs = 0.00;
+	const double laborPerSqrFt = 0.07272; // 8/110 rounded to the thousandths place
 	const double laborChargePerHr = 25;
 
 	int numRooms = getRooms();
 	for (int i = 0; i < numRooms; i++) {
 		int sqrFt = getSqrFt();
-		double gal = galForRoom(sqrFt);
+		int gal = galForRoom(sqrFt);
 		galNeeded += gal;
 		double paintPrice = getPricePerGal();
 		paintCharge += gal * paintPrice;
@@ -121,7 +122,7 @@ int getSqrFt() {
 int galForRoom(int squareFoot) {
 	const double galPerSqrft = 0.0091; // 1/110 rounded to the fourth place from the decimal
 	double galNeeded = squareFoot * galPerSqrft;
-	galNeeded = round(galNeeded);
+	galNeeded = ceil(galNeeded);
 	return galNeeded;
 }
 
